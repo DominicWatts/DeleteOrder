@@ -223,5 +223,4 @@ class Data extends AbstractHelper
         $this->connection->delete($tableSalesOrder, "");
         $this->connection->delete($tableSalesOrderGrid, "");
     }
-
 }

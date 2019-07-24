@@ -74,7 +74,6 @@ class MassDelete extends AbstractMassAction
     protected function massAction(
         AbstractCollection $collection
     ) {
-
         $deleted = 0;
         /** @var OrderInterface $order */
         foreach ($collection->getItems() as $order) {
