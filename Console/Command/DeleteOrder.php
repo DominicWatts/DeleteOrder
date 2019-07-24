@@ -13,7 +13,6 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 class DeleteOrder extends Command
 {
-
     const ALL_ARGUMENT = 'all';
     const ORDERID_OPTION = 'orderid';
     const INCREMENTID_OPTION = 'increment';
