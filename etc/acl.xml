@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Xigen_DeleteOrder::xigen_deleteorder" sortOrder="10" title="xigen deleteorder">
+                    <resource id="Xigen_DeleteOrder::index_deleteSingle" sortOrder="10" title="Delete Single"/>
+                    <resource id="Xigen_DeleteOrder::index_massDelete" sortOrder="10" title="Mass Delete"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
