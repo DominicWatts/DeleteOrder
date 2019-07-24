@@ -2,6 +2,12 @@
 
 Delete order via admin or in console script.  Database level delete covering many tables.
 
+# Install instructions #
+
+`composer require dominicwatts/deleteorder`
+
+`php bin/magento setup:upgrade`
+
 # Usage Instructions #
 
 Console command to delete orders
