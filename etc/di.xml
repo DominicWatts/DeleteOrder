@@ -3,7 +3,7 @@
 	<type name="Magento\Framework\Console\CommandList">
 		<arguments>
 			<argument name="commands" xsi:type="array">
-				<item name="DeleteOrder" xsi:type="object">Xigen\DeleteOrder\Console\Command\DeleteOrder</item>
+				<item name="DeleteOrder_DeleteOrder" xsi:type="object">Xigen\DeleteOrder\Console\Command\DeleteOrder</item>
 			</argument>
 		</arguments>
 	</type>
