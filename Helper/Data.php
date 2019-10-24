@@ -1,10 +1,14 @@
 <?php
 
+// phpcs:disable Magento2.Files.LineLength.MaxExceeded
 
 namespace Xigen\DeleteOrder\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 
+/**
+ * Data class
+ */
 class Data extends AbstractHelper
 {
     /**

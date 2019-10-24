@@ -9,6 +9,9 @@ use Magento\Sales\Block\Adminhtml\Order\View as OrderView;
 use Xigen\DeleteOrder\Helper\Data;
 use Magento\Framework\UrlInterface;
 
+/**
+ * View class
+ */
 class View
 {
     /**
