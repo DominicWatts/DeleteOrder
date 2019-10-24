@@ -11,6 +11,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
+/**
+ * DeleteOrder class
+ */
 class DeleteOrder extends Command
 {
     const ALL_ARGUMENT = 'all';
@@ -83,7 +86,8 @@ class DeleteOrder extends Command
         $all = $input->getArgument(self::ALL_ARGUMENT) ?: false;
 
         if ($orderId || $incrementId) {
-            $this->output->writeln((string) __('%1 Processing order <info>%2</info>',
+            $this->output->writeln((string) __(
+                '%1 Processing order <info>%2</info>',
                 $this->dateTime->gmtDate(),
                 $orderId ?: $incrementId
             ));
@@ -97,7 +101,8 @@ class DeleteOrder extends Command
             }
 
             if ($order) {
-                $this->output->writeln((string) __('%1 Deleting order <info>%2</info>',
+                $this->output->writeln((string) __(
+                    '%1 Deleting order <info>%2</info>',
                     $this->dateTime->gmtDate(),
                     $orderId ?: $incrementId
                 ));
@@ -109,7 +114,8 @@ class DeleteOrder extends Command
                     return;
                 }
             } else {
-                $this->output->writeln((string) __('%1 Error not found order <info>%2</info>',
+                $this->output->writeln((string) __(
+                    '%1 Error not found order <info>%2</info>',
                     $this->dateTime->gmtDate(),
                     $orderId ?: $incrementId
                 ));

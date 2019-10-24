@@ -18,6 +18,9 @@ use Magento\Ui\Component\MassAction\Filter;
 use Xigen\DeleteOrder\Helper\Data as DataHelper;
 use Psr\Log\LoggerInterface;
 
+/**
+ * MassDelete class
+ */
 class MassDelete extends AbstractMassAction
 {
     /**
@@ -83,8 +86,10 @@ class MassDelete extends AbstractMassAction
                 $deleted++;
             } catch (Exception $e) {
                 $this->logger->critical($e);
-                $this->messageManager->addErrorMessage(__('Cannot delete order #%1. Please try again later.',
-                    $order->getIncrementId()));
+                $this->messageManager->addErrorMessage(__(
+                    'Cannot delete order #%1. Please try again later.',
+                    $order->getIncrementId()
+                ));
             }
         }
         if ($deleted) {

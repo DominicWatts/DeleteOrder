@@ -7,6 +7,9 @@ use Magento\Framework\AuthorizationInterface;
 use Magento\Ui\Component\MassAction as UiMassAction;
 use Xigen\DeleteOrder\Helper\Data;
 
+/**
+ * MassAction class
+ */
 class MassAction
 {
     /**
