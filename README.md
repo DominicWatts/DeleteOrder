@@ -1,5 +1,11 @@
 # Magento 2 Delete Order # 
 
+![phpcs](https://github.com/DominicWatts/DeleteOrder/workflows/phpcs/badge.svg)
+
+![PHPCompatibility](https://github.com/DominicWatts/DeleteOrder/workflows/PHPCompatibility/badge.svg)
+
+![PHPStan](https://github.com/DominicWatts/DeleteOrder/workflows/PHPStan/badge.svg)
+
 Delete order via admin or in console script.  Database level delete covering many tables.
 
 # Install instructions #
