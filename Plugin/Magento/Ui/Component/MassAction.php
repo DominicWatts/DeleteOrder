@@ -1,15 +1,11 @@
 <?php
 
-
 namespace Xigen\DeleteOrder\Plugin\Magento\Ui\Component;
 
 use Magento\Framework\AuthorizationInterface;
 use Magento\Ui\Component\MassAction as UiMassAction;
 use Xigen\DeleteOrder\Helper\Data;
 
-/**
- * MassAction class
- */
 class MassAction
 {
     /**

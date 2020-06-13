@@ -1,26 +1,20 @@
 <?php
 
-
 namespace Xigen\DeleteOrder\Controller\Adminhtml\Index;
 
 use Exception;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
-use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Controller\Adminhtml\Order\AbstractMassAction;
 use Magento\Sales\Model\OrderRepository;
 use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 use Magento\Ui\Component\MassAction\Filter;
-use Xigen\DeleteOrder\Helper\Data as DataHelper;
 use Psr\Log\LoggerInterface;
+use Xigen\DeleteOrder\Helper\Data as DataHelper;
 
-/**
- * MassDelete class
- */
 class MassDelete extends AbstractMassAction
 {
     /**
