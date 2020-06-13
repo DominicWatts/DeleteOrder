@@ -1,16 +1,13 @@
 <?php
 
-
 namespace Xigen\DeleteOrder\Controller\Adminhtml\Index;
 
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Sales\Controller\Adminhtml\Order;
+use Psr\Log\LoggerInterface;
 use Xigen\DeleteOrder\Helper\Data;
 
-/**
- * DeleteSingle class
- */
 class DeleteSingle extends Order
 {
     const ADMIN_RESOURCE = 'Magento_Sales::delete';
@@ -30,8 +27,10 @@ class DeleteSingle extends Order
                 $helper->deleteOrder($order->getId());
                 $this->messageManager->addSuccessMessage(__('The order has been deleted.'));
             } catch (\Exception $e) {
-                $this->messageManager->addErrorMessage(__('An error occurred while deleting the order. Please try again later.'));
-                $this->_objectManager->get(Psr\Log\LoggerInterface::class)->critical($e);
+                $this->messageManager->addErrorMessage(
+                    __('An error occurred while deleting the order. Please try again later.')
+                );
+                $this->_objectManager->get(LoggerInterface::class)->critical($e);
                 return $resultRedirect->setPath('sales/order/view', ['order_id' => $order->getId()]);
             }
         }

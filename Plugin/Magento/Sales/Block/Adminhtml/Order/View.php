@@ -1,17 +1,13 @@
 <?php
 
-
 namespace Xigen\DeleteOrder\Plugin\Magento\Sales\Block\Adminhtml\Order;
 
 use Magento\Framework\AuthorizationInterface;
+use Magento\Framework\UrlInterface;
 use Magento\Framework\View\LayoutInterface;
 use Magento\Sales\Block\Adminhtml\Order\View as OrderView;
 use Xigen\DeleteOrder\Helper\Data;
-use Magento\Framework\UrlInterface;
 
-/**
- * View class
- */
 class View
 {
     /**
