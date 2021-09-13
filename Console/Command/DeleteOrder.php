@@ -2,13 +2,18 @@
 
 namespace Xigen\DeleteOrder\Console\Command;
 
+use Magento\Framework\App\Area;
+use Magento\Framework\App\State;
 use Magento\Framework\Console\Cli;
+use Magento\Framework\Stdlib\DateTime\DateTime;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
+use Xigen\DeleteOrder\Helper\Data;
 
 class DeleteOrder extends Command
 {
@@ -54,10 +59,10 @@ class DeleteOrder extends Command
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $dateTime
      */
     public function __construct(
-        \Psr\Log\LoggerInterface $logger,
-        \Magento\Framework\App\State $state,
-        \Xigen\DeleteOrder\Helper\Data $deleteHelper,
-        \Magento\Framework\Stdlib\DateTime\DateTime $dateTime
+        LoggerInterface $logger,
+        State $state,
+        Data $deleteHelper,
+        DateTime $dateTime
     ) {
         $this->logger = $logger;
         $this->state = $state;
@@ -68,6 +73,7 @@ class DeleteOrder extends Command
 
     /**
      * {@inheritdoc}
+     * @return int
      */
     protected function execute(
         InputInterface $input,
@@ -76,7 +82,7 @@ class DeleteOrder extends Command
         $this->input = $input;
         $this->output = $output;
 
-        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_GLOBAL);
+        $this->state->setAreaCode(Area::AREA_GLOBAL);
         $orderId = $this->input->getOption(self::ORDERID_OPTION);
         $incrementId = $this->input->getOption(self::INCREMENTID_OPTION);
         $all = $input->getArgument(self::ALL_ARGUMENT) ?: false;
@@ -105,9 +111,10 @@ class DeleteOrder extends Command
 
                 try {
                     $this->deleteHelper->deleteOrder($order->getId());
+                    return Cli::RETURN_SUCCESS;
                 } catch (\Exception $e) {
                     $this->logger->critical($e);
-                    return;
+                    return Cli::RETURN_FAILURE;
                 }
             } else {
                 $this->output->writeln((string) __(
@@ -127,8 +134,13 @@ class DeleteOrder extends Command
                 return Cli::RETURN_FAILURE;
             }
             $this->deleteHelper->deleteAll();
-            $this->output->writeln((string) __('%1 Finish Processing orders', $this->dateTime->gmtDate()));
+            $this->output->writeln((string) __(
+                '%1 Finish Processing orders',
+                $this->dateTime->gmtDate()
+            ));
+            return Cli::RETURN_SUCCESS;
         }
+        return Cli::RETURN_FAILURE;
     }
 
     /**
