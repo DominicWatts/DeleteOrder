@@ -6,6 +6,8 @@
 
 ![PHPStan](https://github.com/DominicWatts/DeleteOrder/workflows/PHPStan/badge.svg)
 
+![php-cs-fixer](https://github.com/DominicWatts/DeleteOrder/workflows/php-cs-fixer/badge.svg)
+
 Delete order via admin or in console script.  Database level delete covering many tables.
 
 # Install instructions #
